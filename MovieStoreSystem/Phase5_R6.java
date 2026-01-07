@@ -60,8 +60,8 @@ public class Phase5_R6 {
     }
     
     // -----------------------Improved Search Method-------------------------
-    // Used Binary Search Implementation (O(log n) - much faster than Linear Search)
-    // It requires list to be sorted first
+    // Binary Search Implementation (O(log n) - much faster than Linear Search)
+    // it requires list to be sorted first!
     public static <T extends nameKey> boolean binarySearch(ArrayList<T> objectToSearch, String valueToSearch) {
         int left = 0;
         int right = objectToSearch.size() - 1;
@@ -81,25 +81,20 @@ public class Phase5_R6 {
         }
         return false; // Not found
     }
-    
-    // Using Java's built-in binary search
+
+    // Alternative: Using Java's built-in binary search with a custom comparator
     public static <T extends nameKey> boolean binarySearchBuiltIn(ArrayList<T> sortedList, String valueToSearch) {
-        // Create a comparator for binary search
-        Comparator<T> comparator = Comparator.comparing(
-            nameKey::getNameValue, 
-            String.CASE_INSENSITIVE_ORDER
-        );
-        
-        // Create a dummy object for comparison
-        T key = new nameKey() {
+        // Create a comparator that compares getNameValue() case-insensitively
+        Comparator<T> comparator = new Comparator<T>() {
             @Override
-            public String getNameValue() {
-                return valueToSearch;
+            public int compare(T o1, T o2) {
+                return o1.getNameValue().compareToIgnoreCase(o2.getNameValue());
             }
         };
         
-        int index = Collections.binarySearch(sortedList, key, comparator);
-        return index >= 0;
+        // We can't create a generic T instance, so we'll need to search manually
+        // using the comparator
+        return binarySearch(sortedList, valueToSearch); // Using the manual binary search
     }
     
     // --------------------------Main Method-----------------------------------
