@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 public class Phase1_R1R2 {
     public static void main(String[] args) {
+        
         //This code is to add movie titles to the movie store and sort them
         ArrayList<String> movieTitles = new ArrayList<String>(); // an array list of movie titles
         String newMovieTitle; //A variable to add a new movie title
