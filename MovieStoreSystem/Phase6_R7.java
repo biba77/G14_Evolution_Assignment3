@@ -172,14 +172,14 @@ class MovieInputHandler {
 
     public ArrayList<Movie> collectMovies() {
         System.out.println("Create the movies list by entering the movie titles one by one");
-        System.out.println("Enter a movie title to be added to the movie store");
+        System.out.println("Enter a movie title to be added to the movie store (type 'end' to finish):");
         String movieInput = input.nextLine().trim();
 
         while (!movieInput.equalsIgnoreCase("end")) {
             if (!movieInput.isEmpty()) {
                 movies.add(new Movie(movieInput));
             }
-            System.out.print("Enter a movie title to be added to the movie store");
+            System.out.print("Enter a movie title to be added to the movie store (type 'end' to finish): ");
             movieInput = input.nextLine().trim();
         }
 
@@ -199,14 +199,14 @@ class MemberInputHandler {
 
     public ArrayList<Member> collectMembers() {
         System.out.println("\nCreate the members list by entering the member names one by one");
-        System.out.println("Enter a member name to be added to the movie store system");
+        System.out.println("Enter a member name to be added to the movie store system (type 'end' to finish):");
         String memberInput = input.nextLine().trim();
 
         while (!memberInput.equalsIgnoreCase("end")) {
             if (!memberInput.isEmpty()) {
                 members.add(new Member(memberInput));
             }
-            System.out.print("Enter a member name to be added to the movie store");
+            System.out.print("Enter a member name to be added to the movie store (type 'end' to finish): ");
             memberInput = input.nextLine().trim();
         }
 
