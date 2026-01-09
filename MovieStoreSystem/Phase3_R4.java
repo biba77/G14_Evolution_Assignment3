@@ -73,20 +73,20 @@ public class Phase3_R4 {
         Scanner input = new Scanner(System.in); 
         ArrayList<Movie> movies = new ArrayList<>();
         System.out.println("Create the movies list by entering the movie titles one by one"); 
-        System.out.println("Enter a movie title to be added to the movie store (type 'end' to finish):"); 
+        System.out.println("Enter a movie title to be added to the movie store "); 
         String movieInput = input.next();
         while (!movieInput.equals("end")) { 
             movies.add(new Movie(movieInput)); 
-            System.out.print("Enter a movie title to be added to the movie store (type 'end' to finish): "); 
+            System.out.print("Enter a movie title to be added to the movie store "); 
             movieInput = input.next(); 
         } 
-        System.out.println("The movie titles in the movie store before sorting are: "); 
+        System.out.println("The movie titles in the movie store before sorting are:"); 
         for (Movie movie : movies) { 
             System.out.println(movie.getTitle()); //**** 
         } 
         // ---------------Using Movies Sorting Method---------------------------- 
         ArrayList<Movie> sortedMovies = sortMovies(movies); 
-        System.out.println("The movie titles in the movie store after sorting are: "); 
+        System.out.println("The movie titles in the movie store after sorting are:"); 
         for (Movie movie : sortedMovies) { 
             System.out.println(movie.getTitle()); 
         } 
@@ -94,11 +94,11 @@ public class Phase3_R4 {
         // This code is to add members to the movie store 
         ArrayList<Member> members = new ArrayList<>();  
         System.out.println("Create the members list by entering the member names one by one"); 
-        System.out.println("Enter a member name to be added to the movie store system (type 'end' to finish):"); 
+        System.out.println("Enter a member name to be added to the movie store system "); 
         String memberInput = input.next(); 
         while (!memberInput.equals("end")) { 
             members.add(new Member(memberInput)); 
-            System.out.print("Enter a member name to be added to the movie store (type 'end' to finish): "); 
+            System.out.print("Enter a member name to be added to the movie store "); 
             memberInput = input.next(); 
         }
         System.out.println("The members in the movie store before sorting are: "); 
