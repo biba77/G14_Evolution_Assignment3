@@ -1,13 +1,11 @@
 package MovieStoreSystem;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.Scanner;
 
 public class Phase5_R6 {
     // -----------------------Improved Sorting Method-------------------------
-    // Used Merge Sort Implementation (O(n log n) - It is much faster than Bubble Sort)
+    // Merge Sort Implementation (O(n log n) - much faster than Bubble Sort)
     public static <T extends nameKey> ArrayList<T> mergeSort(ArrayList<T> objectToSort) {
         if (objectToSort.size() <= 1) {
             return new ArrayList<>(objectToSort);
@@ -52,16 +50,9 @@ public class Phase5_R6 {
         }
     }
     
-    // Using Java's built-in TimSort which is a hybrid of merge sort and insertion sort
-    public static <T extends nameKey> ArrayList<T> quickSort(ArrayList<T> objectToSort) {
-        ArrayList<T> sortedList = new ArrayList<>(objectToSort);
-        sortedList.sort(Comparator.comparing(nameKey::getNameValue, String.CASE_INSENSITIVE_ORDER));
-        return sortedList;
-    }
-    
     // -----------------------Improved Search Method-------------------------
     // Binary Search Implementation (O(log n) - much faster than Linear Search)
-    // it requires list to be sorted first!
+    // IMPORTANT: Requires list to be sorted first!
     public static <T extends nameKey> boolean binarySearch(ArrayList<T> objectToSearch, String valueToSearch) {
         int left = 0;
         int right = objectToSearch.size() - 1;
@@ -80,21 +71,6 @@ public class Phase5_R6 {
             }
         }
         return false; // Not found
-    }
-
-    // Alternative: Using Java's built-in binary search with a custom comparator
-    public static <T extends nameKey> boolean binarySearchBuiltIn(ArrayList<T> sortedList, String valueToSearch) {
-        // Create a comparator that compares getNameValue() case-insensitively
-        Comparator<T> comparator = new Comparator<T>() {
-            @Override
-            public int compare(T o1, T o2) {
-                return o1.getNameValue().compareToIgnoreCase(o2.getNameValue());
-            }
-        };
-        
-        // We can't create a generic T instance, so we'll need to search manually
-        // using the comparator
-        return binarySearch(sortedList, valueToSearch); // Using the manual binary search
     }
     
     // --------------------------Main Method-----------------------------------
@@ -120,9 +96,8 @@ public class Phase5_R6 {
             System.out.println(movie.getTitle());
         }
         
-        // ---------------Using improved sort for Movies ----------------------------
-        ArrayList<Movie> sortedMovies = mergeSort(movies); // Using merge sort
-        // ArrayList<Movie> sortedMovies = quickSort(movies); // Alternative: using built-in sort
+        // ---------------Using merge sort for Movies ----------------------------
+        ArrayList<Movie> sortedMovies = mergeSort(movies);
         
         System.out.println("\nThe movie titles in the movie store after sorting are: ");
         for (Movie movie : sortedMovies) {
@@ -148,7 +123,7 @@ public class Phase5_R6 {
             System.out.println(member.getName());
         }
         
-        // ---------------Using improved sort for Members ----------------------------
+        // ---------------Using merge sort for Members ----------------------------
         ArrayList<Member> sortedMembers = mergeSort(members);
         
         System.out.println("\nThe members in the movie store after sorting are: ");
@@ -156,10 +131,10 @@ public class Phase5_R6 {
             System.out.println(member.getName());
         }
         
-        // ---------------Using improved search for Movies ----------------------------
+        // ---------------Using binary search for Movies ----------------------------
         System.out.print("\nEnter a movie title to search for: ");
         String movieToSearch = input.nextLine().trim();
-        boolean isMovieFound = binarySearch(sortedMovies, movieToSearch); // Using binary search
+        boolean isMovieFound = binarySearch(sortedMovies, movieToSearch);
         
         if (isMovieFound) {
             System.out.println("The movie title is found");
@@ -167,10 +142,10 @@ public class Phase5_R6 {
             System.out.println("The movie title is not found");
         }
         
-        // ---------------Using improved search for Members ----------------------------
+        // ---------------Using binary search for Members ----------------------------
         System.out.print("\nEnter a member name to search for: ");
         String memberToSearch = input.nextLine().trim();
-        boolean isMemberFound = binarySearch(sortedMembers, memberToSearch); // Using binary search
+        boolean isMemberFound = binarySearch(sortedMembers, memberToSearch);
         
         if (isMemberFound) {
             System.out.println("The member is found");
