@@ -1,4 +1,4 @@
-package MovieStoreSystem; 
+package com.example.MovieStoreSystem; 
 import java.util.ArrayList; 
 import java.util.Scanner; 
 public class Phase2_R3 {     
@@ -74,14 +74,14 @@ public class Phase2_R3 {
         String newMovieTitle; 
         String movieToSearch = null; 
         String memberToSearch = null; 
-        System.out.println("Create the movies list by entering the movie titles one by one"); 
-        System.out.println("Enter a movie title to be added to the movie store (type 'end' to finish):"); 
-        Scanner input = new Scanner(System.in); 
-        newMovieTitle = input.next(); 
-        while (!(newMovieTitle.equals("end"))) { 
+        System.out.println("Create the movies list by entering the movie titles one by one");       
+        System.out.println("Enter a movie title to be added to the movie store"); 
+        Scanner input = new Scanner(System.in);     
+        newMovieTitle = input.next();       
+        while (!(newMovieTitle.equals("end"))) {        
             movieTitles.add(newMovieTitle); 
-            System.out.print("Enter a movie title to be added to the movie store (type 'end' to finish): "); 
-            newMovieTitle = input.next(); 
+            System.out.print("Enter a movie title to be added to the movie store"); 
+            newMovieTitle = input.next();           
         } 
         System.out.println("The movie titles in the movie store before sorting are: "); 
         for (String title : movieTitles) { 
@@ -97,13 +97,13 @@ public class Phase2_R3 {
         // This code is to add members to the movie store 
         ArrayList<String> members = new ArrayList<String>(); 
         String newMemberName; 
-        System.out.println("Create the members list by entering the member names one by one"); 
-        System.out.println("Enter a member name to be added to the movie store system (type 'end' to finish):"); 
-        newMemberName = input.next(); 
-        while (!(newMemberName.equals("end"))) { 
+        System.out.println("Create the members list by entering the member names one by one");       
+        System.out.println("Enter a member name to be added to the movie store system"); 
+        newMemberName = input.next();       
+        while (!(newMemberName.equals("end"))) {        
             members.add(newMemberName); 
-            System.out.print("Enter a member name to be added to the movie store (type 'end' to finish): "); 
-            newMemberName = input.next(); 
+            System.out.print("Enter a member name to be added to the movie store"); 
+            newMemberName = input.next();           
         }
         System.out.println("The members in the movie store before sorting are: "); 
         for (String member : members) { 
@@ -118,7 +118,7 @@ public class Phase2_R3 {
         } 
 
         // -----------------------------Using Movies Search Method-------------------------------- 
-        System.out.println("Enter a movie title to search for: "); 
+        System.out.println("Enter a movie title to search for:"); 
         movieToSearch = input.next(); 
         boolean isMovieFound = searchMovieTitle(sortedMovies, movieToSearch); 
         if (isMovieFound) { 
@@ -128,7 +128,7 @@ public class Phase2_R3 {
         } 
 
         // -------------------------------Using Members Search Method------------------------------------ 
-        System.out.println("Enter a member name to search for: "); 
+        System.out.println("Enter a member name to search for:"); 
         memberToSearch = input.next(); 
         boolean isMemberFound = searchMember(sortedMembers, memberToSearch); 
         if (isMemberFound) { 
@@ -138,4 +138,4 @@ public class Phase2_R3 {
         } 
         input.close(); 
     } 
-} 
+}
