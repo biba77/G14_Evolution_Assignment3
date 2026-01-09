@@ -1,4 +1,4 @@
-package com.example.MovieStoreSystem; 
+package MovieStoreSystem; 
 import java.util.ArrayList; 
 import java.util.Scanner; 
 public class Phase2_R3 {     
@@ -139,3 +139,4 @@ public class Phase2_R3 {
         input.close(); 
     } 
 }
+
